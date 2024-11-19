@@ -16,20 +16,25 @@ def main():
     kk_rct = kk_img.get_rect()
     kk_rct.center = 300, 200
 
+    # move_lst = [-1,0]
+
     tmr = 0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
         key_lst = pg.key.get_pressed()
-        kk_rct.move_ip((-1,0))
-        if key_lst[pg.K_UP]:
-            kk_rct.move_ip((0,-1))
-        if key_lst[pg.K_DOWN]:
-            kk_rct.move_ip((0,1))
-        if key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip((2,0))
-        if key_lst[pg.K_LEFT]:
-            kk_rct.move_ip((-1,0))
+        # move_lst pg.K_UP]
+        # kk_rct.move_ip((0,pg.K_UP + pg.K_DOWN))
+        kk_rct.move_ip((key_lst[pg.K_RIGHT]*2 - key_lst[pg.K_LEFT] -1, key_lst[pg.K_DOWN] - key_lst[pg.K_UP]))
+        # # kk_rct.move_ip((-1,0))
+        # if key_lst[pg.K_UP]:
+        #     kk_rct.move_ip((0,-1))
+        # if key_lst[pg.K_DOWN]:
+        #     kk_rct.move_ip((0,1))
+        # if key_lst[pg.K_RIGHT]:
+        #     kk_rct.move_ip((2,0))
+        # if key_lst[pg.K_LEFT]:
+        #     kk_rct.move_ip((-1,0))
 
             
         #背景の描画
